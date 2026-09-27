@@ -1,0 +1,68 @@
+# Grafana unified-alerting rule provisioned from the repository (Homework 4, Q4).
+# Watches the 5xx rate of the OTel request metric. Periods with no 5xx series
+# resolve to OK (noDataState), so the alert reads Normal until real server
+# errors occur. The webhook contact point is connected in Q6.
+apiVersion: 1
+
+groups:
+  - orgId: 1
+    name: order-tracker-alerts
+    folder: Order Tracker
+    interval: 30s
+    rules:
+      - uid: order-tracker-5xx
+        title: Order Tracker 5xx errors
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: prometheus
+            model:
+              expr: sum by (http_route) (rate(http_server_requests_total{http_response_status_code=~"5.."}[2m]))
+              intervalMs: 15000
+              maxDataPoints: 100
+              refId: A
+          - refId: B
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: __expr__
+            model:
+              expression: A
+              reducer: last
+              refId: B
+              type: reduce
+          - refId: C
+            relativeTimeRange:
+              from: 300
+              to: 0
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params: [0]
+                    type: gt
+                  operator:
+                    type: and
+                  query:
+                    params: [C]
+                  reducer:
+                    params: []
+                    type: last
+              expression: B
+              refId: C
+              type: threshold
+        for: 1m
+        noDataState: OK
+        execErrState: Error
+        annotations:
+          summary: '5xx errors on {{ $labels.http_route }} over the last 2 minutes'
+          description: >-
+            Server-error rate above 0 for 1 minute (2m evaluation window).
+            Affected endpoint: {{ $labels.http_route }}.
+          dashboardUid: order-tracker-requests
+          panelId: "2"
+        labels:
+          severity: critical
