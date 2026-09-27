@@ -5,9 +5,15 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from uuid import uuid4
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
+from opentelemetry.trace import Status, StatusCode
 from pydantic import BaseModel, Field
+from starlette.middleware.base import BaseHTTPMiddleware
+
+from app import telemetry
+
+telemetry.configure()
 
 
 DB_PATH = Path(os.getenv("ORDER_DB_PATH", "data/orders.db"))
@@ -74,9 +80,67 @@ class StatusUpdate(BaseModel):
 async def lifespan(_app: FastAPI):
     init_db()
     yield
+    telemetry.shutdown()
 
 
 app = FastAPI(title="Order Tracker", lifespan=lifespan)
+
+
+class TelemetryMiddleware(BaseHTTPMiddleware):
+    """Record an OTel span, log record, and request counter for each request.
+
+    The counter carries ``http.route`` (route template) and
+    ``http.response.status_code`` so metrics can be sliced per endpoint and
+    outcome, e.g. order lookups on ``/api/orders/{order_id}``.
+    """
+
+    async def dispatch(self, request: Request, call_next):
+        route = telemetry.lookup_route_template(request.method, request.url.path)
+        order_id = None
+        if route == telemetry.ORDER_LOOKUP_ROUTE:
+            order_id = request.url.path.rsplit("/", 1)[-1]
+        attributes = {"http.method": request.method, "http.route": route}
+        with telemetry.tracer.start_as_current_span(
+            f"{request.method} {route}", attributes=attributes
+        ) as span:
+            if order_id:
+                span.set_attribute("order.id", order_id)
+            try:
+                response = await call_next(request)
+                status = response.status_code
+            except Exception as exc:
+                status = 500
+                span.set_status(Status(StatusCode.ERROR, str(exc)))
+                span.set_attribute("http.response.status_code", status)
+                telemetry.request_counter.add(
+                    1,
+                    {"http.route": route, "http.response.status_code": status},
+                )
+                telemetry.logger.exception(
+                    "order lookup failed method=%s route=%s order_id=%s status=%s",
+                    request.method,
+                    route,
+                    order_id,
+                    status,
+                )
+                raise
+            span.set_attribute("http.response.status_code", status)
+            if status >= 500:
+                span.set_status(Status(StatusCode.ERROR, f"HTTP {status}"))
+            telemetry.request_counter.add(
+                1, {"http.route": route, "http.response.status_code": status}
+            )
+            telemetry.logger.info(
+                "order lookup method=%s route=%s order_id=%s status=%s",
+                request.method,
+                route,
+                order_id,
+                status,
+            )
+            return response
+
+
+app.add_middleware(TelemetryMiddleware)
 
 
 @app.get("/")
