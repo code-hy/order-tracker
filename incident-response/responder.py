@@ -99,7 +99,17 @@ def run_agent(incident_dir: Path, prompt: str, is_test: bool):
     prompt_file.write_text(prompt, encoding="utf-8")
     try:
         completed = subprocess.run(
-            [CLAUDE_BIN, "-p", prompt, "--output-format", "text"],
+            [
+                CLAUDE_BIN,
+                "-p",
+                prompt,
+                "--output-format",
+                "text",
+                # Non-interactive run: permission prompts cannot be answered,
+                # so pre-authorize file edits. The agent still runs with
+                # cwd=sc-repo root and is instructed to only edit code files.
+                "--dangerously-skip-permissions",
+            ],
             cwd=str(REPO_DIR),
             capture_output=True,
             text=True,
@@ -141,6 +151,8 @@ async def receive_alerts(request: Request):
     alerts = payload.get("alerts", [payload])
     incident_ids = []
     for alert in alerts:
+        if alert.get("status", "firing") != "firing":
+            continue
         labels = alert.get("labels", {})
         is_test = labels.get("test") == "true"
         endpoint = (

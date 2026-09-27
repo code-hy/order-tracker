@@ -1,0 +1,69 @@
+rebuild exit=0
+for ghcr.io/astral-sh/uv:0.8.22
+#3 DONE 0.9s
+
+#4 [auth] library/python:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [internal] load metadata for docker.io/library/python:3.12-slim
+#5 DONE 1.8s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 108B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 461B done
+#7 DONE 0.0s
+
+#8 FROM ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1
+#8 resolve ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1 0.0s done
+#8 DONE 0.0s
+
+#9 [stage-0 1/7] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#9 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f 0.0s done
+#9 DONE 0.0s
+
+#10 [stage-0 2/7] COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /uvx /bin/
+#10 CACHED
+
+#11 [stage-0 3/7] WORKDIR /app
+#11 CACHED
+
+#12 [stage-0 4/7] COPY pyproject.toml uv.lock ./
+#12 CACHED
+
+#13 [stage-0 5/7] RUN uv sync --frozen --no-dev
+#13 CACHED
+
+#14 [stage-0 6/7] COPY app ./app
+#14 CACHED
+
+#15 [stage-0 7/7] COPY static ./static
+#15 CACHED
+
+#16 exporting to image
+#16 exporting layers done
+#16 exporting manifest sha256:ad40cc05a92578c586c6342c1208fc43390ddbb6a3b196c2a350d67b94efa1d6 done
+#16 exporting config sha256:e3b3f02f6466a8f270f294e9019880ae9f6b181ea8ace339268d361fb6456688 done
+#16 exporting attestation manifest sha256:26f9f15718725c011123d2229339eee919960cf33509909f4f495ee6ffeccb76
+#16 exporting attestation manifest sha256:26f9f15718725c011123d2229339eee919960cf33509909f4f495ee6ffeccb76 0.0s done
+#16 exporting manifest list sha256:54c8135d51077c5f3ae082c15d1fdc51b6a2db617f05bf5ee278aacc931229b2 0.0s done
+#16 naming to docker.io/library/order-tracker:local done
+#16 unpacking to docker.io/library/order-tracker:local 0.0s done
+#16 DONE 0.2s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.0s
+
+ Image order-tracker:local Building 
+ Image order-tracker:local Built 
+ Container order-tracker-otel-collector-1 Running 
+ Container order-tracker-app-1 Recreate 
+ Container order-tracker-app-1 Recreated 
+ Container order-tracker-app-1 Starting 
+ Container order-tracker-app-1 Started 
+ Container order-tracker-app-1 Waiting 
+ Container order-tracker-otel-collector-1 Waiting 
+ Container order-tracker-otel-collector-1 Healthy 
+ Container order-tracker-app-1 Healthy 

@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta, timezone
+
 import pytest
 from fastapi.testclient import TestClient
 
@@ -33,3 +35,39 @@ def test_create_and_update_order(client):
 
 def test_missing_order(client):
     assert client.get("/api/orders/missing").status_code == 404
+
+
+def test_express_order_estimate_rolls_over_month_end(client):
+    """Regression: express estimates must survive a month boundary.
+
+    The seeded express order is placed on the last day of the previous month,
+    so the estimate always lands in the following month.
+    """
+    response = client.get("/api/orders/express-1002")
+    assert response.status_code == 200
+    body = response.json()
+    placed_at = datetime.fromisoformat(body["created_at"])
+    assert body["estimated_delivery"] == (placed_at + timedelta(days=2)).date().isoformat()
+
+
+@pytest.mark.parametrize(
+    "placed_at",
+    [
+        datetime(2026, 1, 31, tzinfo=timezone.utc),  # year boundary
+        datetime(2026, 8, 31, tzinfo=timezone.utc),  # 31st -> next month
+        datetime(2026, 4, 30, tzinfo=timezone.utc),  # 30th -> next month
+        datetime(2026, 2, 28, tzinfo=timezone.utc),  # short month
+    ],
+)
+def test_order_detail_handles_date_rollover(placed_at):
+    detail = main.order_detail(
+        {
+            "id": "express-1",
+            "customer": "Sam",
+            "item": "Headphones",
+            "priority": "express",
+            "status": "preparing",
+            "created_at": placed_at.isoformat(),
+        }
+    )
+    assert detail["estimated_delivery"] == (placed_at + timedelta(days=2)).date().isoformat()

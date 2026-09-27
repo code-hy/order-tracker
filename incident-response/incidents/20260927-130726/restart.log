@@ -1,0 +1,70 @@
+rebuild exit=0
+n from Dockerfile
+#2 transferring dockerfile: 381B 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for ghcr.io/astral-sh/uv:0.8.22
+#3 DONE 0.8s
+
+#4 [internal] load metadata for docker.io/library/python:3.12-slim
+#4 DONE 0.9s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 108B done
+#5 DONE 0.2s
+
+#6 [internal] load build context
+#6 transferring context: 19.57kB 0.0s done
+#6 DONE 0.0s
+
+#7 FROM ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1
+#7 resolve ghcr.io/astral-sh/uv:0.8.22@sha256:9874eb7afe5ca16c363fe80b294fe700e460df29a55532bbfea234a0f12eddb1 0.0s done
+#7 DONE 0.1s
+
+#8 [stage-0 1/7] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#8 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f 0.1s done
+#8 DONE 0.1s
+
+#9 [stage-0 2/7] COPY --from=ghcr.io/astral-sh/uv:0.8.22 /uv /uvx /bin/
+#9 CACHED
+
+#10 [stage-0 4/7] COPY pyproject.toml uv.lock ./
+#10 CACHED
+
+#11 [stage-0 3/7] WORKDIR /app
+#11 CACHED
+
+#12 [stage-0 5/7] RUN uv sync --frozen --no-dev
+#12 CACHED
+
+#13 [stage-0 6/7] COPY app ./app
+#13 DONE 0.1s
+
+#14 [stage-0 7/7] COPY static ./static
+#14 DONE 0.1s
+
+#15 exporting to image
+#15 exporting layers 0.1s done
+#15 exporting manifest sha256:ef67a6e250892df2032489e0768beff4959291bf43bf46675cf2f8f42dbbb8fb 0.0s done
+#15 exporting config sha256:8dc4aa54002d7b11fe2248bfa12e914fc7ab471ebfde545e1059df3631ea8047 0.0s done
+#15 exporting attestation manifest sha256:b5e9f0ebe5e0397f92463ddce3a1800268b84b1ad8b6f54958fc10c8191cf582 0.0s done
+#15 exporting manifest list sha256:87507266a59c97cd02940ada8af06f1a81ed13b69349cea58aaeedcfd1b98f8b 0.0s done
+#15 naming to docker.io/library/order-tracker:local
+#15 naming to docker.io/library/order-tracker:local done
+#15 unpacking to docker.io/library/order-tracker:local 0.1s done
+#15 DONE 0.4s
+
+#16 resolving provenance for metadata file
+#16 DONE 0.0s
+
+ Image order-tracker:local Building 
+ Image order-tracker:local Built 
+ Container order-tracker-otel-collector-1 Running 
+ Container order-tracker-app-1 Recreate 
+ Container order-tracker-app-1 Recreated 
+ Container order-tracker-app-1 Starting 
+ Container order-tracker-app-1 Started 
+ Container order-tracker-app-1 Waiting 
+ Container order-tracker-otel-collector-1 Waiting 
+ Container order-tracker-otel-collector-1 Healthy 
+ Container order-tracker-app-1 Healthy 

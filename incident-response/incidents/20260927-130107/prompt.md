@@ -1,0 +1,1 @@
+This is a self-test of the Order Tracker incident-response loop. There is no real incident to fix. Incident id: 20260927-130107. Reply with two short lines: what you understood, then as the very last line exactly: SELF-TEST OK

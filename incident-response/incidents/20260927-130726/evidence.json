@@ -1,0 +1,1256 @@
+{
+  "endpoint": "/api/orders/{order_id}",
+  "prometheus_5xx": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {
+            "http_route": "/api/orders/{order_id}"
+          },
+          "value": [
+            1790514448.441,
+            "0.04460186684588388"
+          ]
+        }
+      ]
+    }
+  },
+  "loki_error_logs": {
+    "status": "success",
+    "data": {
+      "resultType": "streams",
+      "result": [
+        {
+          "stream": {
+            "detected_level": "ERROR",
+            "exporter": "OTLP",
+            "job": "order-tracker",
+            "level": "ERROR",
+            "service_name": "order-tracker"
+          },
+          "values": [
+            [
+              "1790514338470966016",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"f60f0b5b11ffbdd3b54296e3418a4515\",\"spanid\":\"65403c762322c1e1\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514326231066368",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"c9156accd6ca123069d9f214e943cd54\",\"spanid\":\"80fa10db86857572\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514313970673152",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"20d0df47f0798daaf9fd150d7cacdd55\",\"spanid\":\"578ba95c34221cc5\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514301708235264",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"85b6faa2a973ae6ff8a62cbcad7e13fb\",\"spanid\":\"8b774d29b2197c77\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514289453714688",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"12e0a6061ff3416db91f6d0fd8e15bdc\",\"spanid\":\"77624898ada9c903\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514277189083648",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"46a5d0db604be72f6c33668b23cac262\",\"spanid\":\"54f02102eadd0b65\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514264932543232",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"1b865388facf0e02dce8bdfa7109f042\",\"spanid\":\"4fae5095975b6b56\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514252676525568",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"61c3a229e7d8fa2427ee1b4544882300\",\"spanid\":\"b4c8e51d84e4777d\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514233597497856",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"1453e6879497c2c030f494a587e4ae14\",\"spanid\":\"3306f0f9de0a10a5\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514223332662272",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"8121df51366d14098a8f4a966210c1ef\",\"spanid\":\"e852ac4399b24498\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514213027958272",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"1a5399b6986a5109ea64c11b53299e3e\",\"spanid\":\"01c5f3cc9c001a6d\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514202700999168",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"d423ee537d30ef6b84018996543d6955\",\"spanid\":\"2492eef31c725828\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514192434903552",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"c52eeeadeeb9e0862b5da7d20488eb95\",\"spanid\":\"ad9465305aef465e\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ],
+            [
+              "1790514182099055872",
+              "{\"body\":\"order lookup failed method=GET route=/api/orders/{order_id} order_id=express-1002 status=500\",\"traceid\":\"8e3f577661741cb7c69a843469d995b7\",\"spanid\":\"310296c14dde81c8\",\"severity\":\"ERROR\",\"flags\":3,\"attributes\":{\"code.file.path\":\"/app/app/main.py\",\"code.function.name\":\"dispatch\",\"code.line.number\":119,\"exception.message\":\"day is out of range for month\",\"exception.stacktrace\":\"Traceback (most recent call last):\\n  File \\\"/app/app/main.py\\\", line 109, in dispatch\\n    response = await call_next(request)\\n               ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 168, in call_next\\n    raise app_exc from app_exc.__cause__ or app_exc.__context__\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/base.py\\\", line 144, in coro\\n    await self.app(scope, receive_or_disconnect, send_no_error)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py\\\", line 63, in __call__\\n    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py\\\", line 18, in __call__\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 670, in __call__\\n    await self.middleware_stack(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 2734, in app\\n    await route.handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 1281, in handle\\n    await super().handle(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/routing.py\\\", line 280, in handle\\n    await self.app(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 158, in app\\n    await wrap_app_handling_exceptions(app, request)(scope, receive, send)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 53, in wrapped_app\\n    raise exc\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py\\\", line 42, in wrapped_app\\n    await app(scope, receive, sender)\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 144, in app\\n    response = await f(request)\\n               ^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 706, in app\\n    raw_response = await run_endpoint_function(\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/fastapi/routing.py\\\", line 354, in run_endpoint_function\\n    return await run_in_threadpool(dependant.call, **values)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/starlette/concurrency.py\\\", line 34, in run_in_threadpool\\n    return await anyio.to_thread.run_sync(func)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/to_thread.py\\\", line 65, in run_sync\\n    return await get_async_backend().run_sync_in_worker_thread(\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 2706, in run_sync_in_worker_thread\\n    return await future\\n           ^^^^^^^^^^^^\\n  File \\\"/app/.venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py\\\", line 1100, in run\\n    result = context.run(func, *args)\\n             ^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 171, in get_order\\n    return order_detail(row)\\n           ^^^^^^^^^^^^^^^^^\\n  File \\\"/app/app/main.py\\\", line 64, in order_detail\\n    estimated_at = placed_at.replace(day=placed_at.day + 2)\\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nValueError: day is out of range for month\\n\",\"exception.type\":\"ValueError\"},\"resources\":{\"service.name\":\"order-tracker\"},\"instrumentation_scope\":{\"name\":\"order_tracker\"}}"
+            ]
+          ]
+        }
+      ],
+      "stats": {
+        "summary": {
+          "bytesProcessedPerSecond": 13659927,
+          "linesProcessedPerSecond": 23270,
+          "totalBytesProcessed": 159076,
+          "totalLinesProcessed": 271,
+          "execTime": 0.011645,
+          "queueTime": 0.000367,
+          "subqueries": 0,
+          "totalEntriesReturned": 14,
+          "splits": 2,
+          "shards": 2,
+          "totalPostFilterLines": 14,
+          "totalStructuredMetadataBytesProcessed": 2168
+        },
+        "querier": {
+          "store": {
+            "totalChunksRef": 0,
+            "totalChunksDownloaded": 0,
+            "chunksDownloadTime": 0,
+            "queryReferencedStructuredMetadata": false,
+            "chunk": {
+              "headChunkBytes": 0,
+              "headChunkLines": 0,
+              "decompressedBytes": 0,
+              "decompressedLines": 0,
+              "compressedBytes": 0,
+              "totalDuplicates": 0,
+              "postFilterLines": 0,
+              "headChunkStructuredMetadataBytes": 0,
+              "decompressedStructuredMetadataBytes": 0
+            },
+            "chunkRefsFetchTime": 0,
+            "congestionControlLatency": 0,
+            "pipelineWrapperFilteredLines": 0
+          }
+        },
+        "ingester": {
+          "totalReached": 2,
+          "totalChunksMatched": 3,
+          "totalBatches": 3,
+          "totalLinesSent": 14,
+          "store": {
+            "totalChunksRef": 0,
+            "totalChunksDownloaded": 0,
+            "chunksDownloadTime": 0,
+            "queryReferencedStructuredMetadata": false,
+            "chunk": {
+              "headChunkBytes": 159076,
+              "headChunkLines": 271,
+              "decompressedBytes": 0,
+              "decompressedLines": 0,
+              "compressedBytes": 0,
+              "totalDuplicates": 0,
+              "postFilterLines": 14,
+              "headChunkStructuredMetadataBytes": 2168,
+              "decompressedStructuredMetadataBytes": 0
+            },
+            "chunkRefsFetchTime": 546370,
+            "congestionControlLatency": 0,
+            "pipelineWrapperFilteredLines": 0
+          }
+        },
+        "cache": {
+          "chunk": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "index": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "result": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "statsResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "volumeResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "seriesResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "labelResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "instantMetricResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          }
+        },
+        "index": {
+          "totalChunks": 0,
+          "postFilterChunks": 0,
+          "shardsDuration": 0,
+          "usedBloomFilters": false
+        }
+      }
+    }
+  },
+  "tempo_traces": {
+    "traces": [
+      {
+        "traceID": "7159303d44de4caa9b87e0df71093b6d",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /health",
+        "startTimeUnixNano": "1790513759455468289",
+        "durationMs": 3,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "3d54afd29eaafa65",
+              "startTimeUnixNano": "1790513759455468289",
+              "durationNanos": "3642577",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "3d54afd29eaafa65",
+                "startTimeUnixNano": "1790513759455468289",
+                "durationNanos": "3642577",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "6bc4fceb9768ef80ad0d751393cffb87",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513751498942294",
+        "durationMs": 2,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "f10a9f2e8b09a9b0",
+              "startTimeUnixNano": "1790513751498942294",
+              "durationNanos": "2570134",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "f10a9f2e8b09a9b0",
+                "startTimeUnixNano": "1790513751498942294",
+                "durationNanos": "2570134",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "c91ea5f8d0009baeb1c9fe1c00d44ae0",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513746297067061",
+        "durationMs": 4,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "7a9b38526544f90b",
+              "startTimeUnixNano": "1790513746297067061",
+              "durationNanos": "4991157",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "7a9b38526544f90b",
+                "startTimeUnixNano": "1790513746297067061",
+                "durationNanos": "4991157",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "7e42569acac83d08b5ea48c9ad4970d2",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513741080555280",
+        "durationMs": 4,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "58673476b9023549",
+              "startTimeUnixNano": "1790513741080555280",
+              "durationNanos": "4004854",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "58673476b9023549",
+                "startTimeUnixNano": "1790513741080555280",
+                "durationNanos": "4004854",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "667e07e5f130011fad0201d441c75bfd",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513735872297208",
+        "durationMs": 5,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "76dd1f59c9a0c1d4",
+              "startTimeUnixNano": "1790513735872297208",
+              "durationNanos": "5682157",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "76dd1f59c9a0c1d4",
+                "startTimeUnixNano": "1790513735872297208",
+                "durationNanos": "5682157",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "a6b44f6a75f4ab65f01ce62bb3c7f95c",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513730646375476",
+        "durationMs": 3,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "b7f238137d996187",
+              "startTimeUnixNano": "1790513730646375476",
+              "durationNanos": "3138842",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "b7f238137d996187",
+                "startTimeUnixNano": "1790513730646375476",
+                "durationNanos": "3138842",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "c5cd926ebaab469e308df505d8439d5e",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /health",
+        "startTimeUnixNano": "1790513729444377816",
+        "durationMs": 2,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "8c644b1e8a9d702a",
+              "startTimeUnixNano": "1790513729444377816",
+              "durationNanos": "2328717",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "8c644b1e8a9d702a",
+                "startTimeUnixNano": "1790513729444377816",
+                "durationNanos": "2328717",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "521f3655595bdab663bd65c4966fd1ef",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513725363392932",
+        "durationMs": 4,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "c920db60b6a272a3",
+              "startTimeUnixNano": "1790513725363392932",
+              "durationNanos": "4551527",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "c920db60b6a272a3",
+                "startTimeUnixNano": "1790513725363392932",
+                "durationNanos": "4551527",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "1786dff0b93563b403df6302a5c9ac4",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /v1/models",
+        "startTimeUnixNano": "1790513723409479928",
+        "durationMs": 2,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "96fcc65e9f72fb53",
+              "startTimeUnixNano": "1790513723409479928",
+              "durationNanos": "2693757",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "96fcc65e9f72fb53",
+                "startTimeUnixNano": "1790513723409479928",
+                "durationNanos": "2693757",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "3bb1ca5f4071b1a56c7d37f505cfd2d9",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513720158388096",
+        "durationMs": 4,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "80743c46915d1370",
+              "startTimeUnixNano": "1790513720158388096",
+              "durationNanos": "4282248",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "80743c46915d1370",
+                "startTimeUnixNano": "1790513720158388096",
+                "durationNanos": "4282248",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "d4ec43e7ab8887095c75c4ff04372b00",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513714966294939",
+        "durationMs": 2,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "679a69406cec3902",
+              "startTimeUnixNano": "1790513714966294939",
+              "durationNanos": "2406937",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "679a69406cec3902",
+                "startTimeUnixNano": "1790513714966294939",
+                "durationNanos": "2406937",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "c57c5be4825da77b1f8734ad4fbef6cd",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513709736668818",
+        "durationMs": 2,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "dbe48c5b14645cc9",
+              "startTimeUnixNano": "1790513709736668818",
+              "durationNanos": "2619427",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "dbe48c5b14645cc9",
+                "startTimeUnixNano": "1790513709736668818",
+                "durationNanos": "2619427",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "545645247941657ba38cef1800cdbd97",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513704537563208",
+        "durationMs": 3,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "3b52b6d280ccbbea",
+              "startTimeUnixNano": "1790513704537563208",
+              "durationNanos": "3451607",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "3b52b6d280ccbbea",
+                "startTimeUnixNano": "1790513704537563208",
+                "durationNanos": "3451607",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "9d71afd793a012eb677e5039468b64ce",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /health",
+        "startTimeUnixNano": "1790513699433516911",
+        "durationMs": 1,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "4dc00263b2818365",
+              "startTimeUnixNano": "1790513699433516911",
+              "durationNanos": "1641647",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "4dc00263b2818365",
+                "startTimeUnixNano": "1790513699433516911",
+                "durationNanos": "1641647",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "931bf3262865302c6730afaf82541ca7",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513699321024139",
+        "durationMs": 3,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "abd4a705ad344025",
+              "startTimeUnixNano": "1790513699321024139",
+              "durationNanos": "3113993",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "abd4a705ad344025",
+                "startTimeUnixNano": "1790513699321024139",
+                "durationNanos": "3113993",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "388bb46015a5647950f72587e9ad03ae",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513694139863308",
+        "durationMs": 2,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "cd8d4830e78d1940",
+              "startTimeUnixNano": "1790513694139863308",
+              "durationNanos": "2912065",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "cd8d4830e78d1940",
+                "startTimeUnixNano": "1790513694139863308",
+                "durationNanos": "2912065",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "2b25623c8fd125f5eabe1237924e3df9",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513688947750631",
+        "durationMs": 7,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "0d105fb2a82e0467",
+              "startTimeUnixNano": "1790513688947750631",
+              "durationNanos": "7755524",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "0d105fb2a82e0467",
+                "startTimeUnixNano": "1790513688947750631",
+                "durationNanos": "7755524",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "8f863cd6de4139a041538beef4003eed",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /api/orders/{order_id}",
+        "startTimeUnixNano": "1790513686157697264",
+        "durationMs": 4,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "781d3396e0837196",
+              "startTimeUnixNano": "1790513686157697264",
+              "durationNanos": "4365852",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "781d3396e0837196",
+                "startTimeUnixNano": "1790513686157697264",
+                "durationNanos": "4365852",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "8c8d57f0358bf2e26c858ba0c8145ce0",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513683661916360",
+        "durationMs": 2,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "3e87d0ec2370ac7c",
+              "startTimeUnixNano": "1790513683661916360",
+              "durationNanos": "2289936",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "3e87d0ec2370ac7c",
+                "startTimeUnixNano": "1790513683661916360",
+                "durationNanos": "2289936",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      },
+      {
+        "traceID": "b134f576abd21bdc81b5dd27367b0a0f",
+        "rootServiceName": "order-tracker",
+        "rootTraceName": "GET /healthz",
+        "startTimeUnixNano": "1790513677426728155",
+        "durationMs": 1013,
+        "spanSet": {
+          "spans": [
+            {
+              "spanID": "9f9345d25866f757",
+              "startTimeUnixNano": "1790513677426728155",
+              "durationNanos": "1013474464",
+              "attributes": [
+                {
+                  "key": "service.name",
+                  "value": {
+                    "stringValue": "order-tracker"
+                  }
+                }
+              ]
+            }
+          ],
+          "matched": 1
+        },
+        "spanSets": [
+          {
+            "spans": [
+              {
+                "spanID": "9f9345d25866f757",
+                "startTimeUnixNano": "1790513677426728155",
+                "durationNanos": "1013474464",
+                "attributes": [
+                  {
+                    "key": "service.name",
+                    "value": {
+                      "stringValue": "order-tracker"
+                    }
+                  }
+                ]
+              }
+            ],
+            "matched": 1
+          }
+        ],
+        "serviceStats": {
+          "order-tracker": {
+            "spanCount": 1
+          }
+        }
+      }
+    ],
+    "metrics": {
+      "inspectedBytes": "1341229",
+      "completedJobs": 1,
+      "totalJobs": 1
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "status": "firing",
+  "labels": {
+    "alertname": "Order Tracker 5xx errors",
+    "severity": "critical",
+    "http_route": "/api/orders/{order_id}"
+  },
+  "annotations": {
+    "summary": "5xx errors on /api/orders/{order_id} over the last 2 minutes",
+    "dashboardUid": "order-tracker-requests"
+  }
+}

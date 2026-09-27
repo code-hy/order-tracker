@@ -1,0 +1,27 @@
+{
+  "status": "firing",
+  "labels": {
+    "alertname": "Order Tracker 5xx errors",
+    "grafana_folder": "Order Tracker",
+    "http_route": "/api/orders/{order_id}",
+    "severity": "critical"
+  },
+  "annotations": {
+    "dashboardUid": "order-tracker-requests",
+    "description": "Server-error rate above 0 for 1 minute (2m evaluation window). Affected endpoint: /api/orders/{order_id}.",
+    "panelId": "2",
+    "summary": "5xx errors on /api/orders/{order_id} over the last 2 minutes"
+  },
+  "startsAt": "2026-09-27T13:04:30Z",
+  "endsAt": "0001-01-01T00:00:00Z",
+  "generatorURL": "http://localhost:3000/alerting/grafana/order-tracker-5xx/view?orgId=1",
+  "fingerprint": "5d1e93b06cd1e4be",
+  "silenceURL": "http://localhost:3000/alerting/silence/new?alertmanager=grafana&matcher=__alert_rule_uid__%3Dorder-tracker-5xx&matcher=http_route%3D%2Fapi%2Forders%2F%7Border_id%7D&matcher=severity%3Dcritical&orgId=1",
+  "dashboardURL": "",
+  "panelURL": "",
+  "values": {
+    "B": 0.061335654290696776,
+    "C": 1
+  },
+  "valueString": "[ var='B' labels={http_route=/api/orders/{order_id}} value=0.061335654290696776 ], [ var='C' labels={http_route=/api/orders/{order_id}} value=1 ]"
+}
