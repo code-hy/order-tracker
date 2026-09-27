@@ -32,6 +32,7 @@ from opentelemetry.sdk.metrics.export import (
     ConsoleMetricExporter,
     PeriodicExportingMetricReader,
 )
+from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import (
     ConsoleSpanExporter,
@@ -113,9 +114,16 @@ def configure():
     global _configured, tracer, meter, request_counter
     if _configured:
         return
-    trace.set_tracer_provider(TracerProvider())
+    trace.set_tracer_provider(
+        TracerProvider(resource=Resource({"service.name": "order-tracker"}))
+    )
     trace.get_tracer_provider().add_span_processor(_span_processor())
-    metrics.set_meter_provider(MeterProvider(metric_readers=[_metric_reader()]))
+    metrics.set_meter_provider(
+        MeterProvider(
+            resource=Resource({"service.name": "order-tracker"}),
+            metric_readers=[_metric_reader()],
+        )
+    )
     tracer = trace.get_tracer("order-tracker")
     meter = metrics.get_meter("order-tracker")
     request_counter = meter.create_counter(
@@ -123,7 +131,9 @@ def configure():
         unit="{request}",
         description="Count of HTTP requests by route and status code.",
     )
-    logger_provider = LoggerProvider()
+    logger_provider = LoggerProvider(
+        resource=Resource({"service.name": "order-tracker"})
+    )
     logger_provider.add_log_record_processor(_log_processor())
     handler = LoggingHandler(
         level=logging.INFO, logger_provider=logger_provider
